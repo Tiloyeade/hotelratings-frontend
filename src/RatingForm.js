@@ -1,21 +1,24 @@
+// src/RatingForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const RatingForm = () => {
     const [reservation, setReservation] = useState(0);
     const [facilities, setFacilities] = useState(0);
     const [customerService, setCustomerService] = useState(0);
     const [remarks, setRemarks] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await axios.post('https://hotelratings-backend.vercel.app/', {
+        await axios.post('http://localhost:5000/api/ratings', {
             reservation,
             facilities,
             customerService,
             remarks,
         });
-        alert('Rating submitted!');
+        navigate('/thank-you');
     };
 
     return (
