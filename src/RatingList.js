@@ -7,7 +7,7 @@ const RatingList = () => {
     useEffect(() => {
         const fetchRatings = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/ratings');
+                const response = await axios.get('https://hotelratings-backend-dezn.vercel.app/api/ratings');
                 setRatings(response.data);
             } catch (error) {
                 console.error('Error fetching ratings:', error);
