@@ -12,7 +12,7 @@ const RatingForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('https://hotelratings-backend-dezn.vercel.app/api/ratings', {
+            await axios.post('https://hotelratings-backend-dezn.vercel.app', {
                 reservation,
                 facilities,
                 customerService,
