@@ -4,7 +4,7 @@ import axios from 'axios';
 const RatingList = () => {
     const [ratings, setRatings] = useState([]);
 
-    const apiUrl = 'https://hotelratings-backend.vercel.app';
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
     useEffect(() => {
         const fetchRatings = async () => {
