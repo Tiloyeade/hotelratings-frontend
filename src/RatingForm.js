@@ -1,4 +1,3 @@
-// src/RatingForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -12,13 +11,17 @@ const RatingForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await axios.post('http://localhost:5000/api/ratings', {
-            reservation,
-            facilities,
-            customerService,
-            remarks,
-        });
-        navigate('/thank-you');
+        try {
+            await axios.post('http://localhost:5000/api/ratings', {
+                reservation,
+                facilities,
+                customerService,
+                remarks,
+            });
+            navigate('/thank-you');
+        } catch (error) {
+            console.error('Error submitting rating:', error);
+        }
     };
 
     return (

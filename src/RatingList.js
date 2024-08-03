@@ -6,8 +6,12 @@ const RatingList = () => {
 
     useEffect(() => {
         const fetchRatings = async () => {
-            const response = await axios.get('http://localhost:5000/api/ratings');
-            setRatings(response.data);
+            try {
+                const response = await axios.get('http://localhost:5000/api/ratings');
+                setRatings(response.data);
+            } catch (error) {
+                console.error('Error fetching ratings:', error);
+            }
         };
         fetchRatings();
     }, []);
