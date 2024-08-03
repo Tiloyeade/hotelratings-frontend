@@ -9,10 +9,12 @@ const RatingForm = () => {
     const [remarks, setRemarks] = useState('');
     const navigate = useNavigate();
 
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/ratings', {
+            await axios.post(`${apiUrl}/api/ratings`, {
                 reservation,
                 facilities,
                 customerService,

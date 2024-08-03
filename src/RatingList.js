@@ -4,10 +4,12 @@ import axios from 'axios';
 const RatingList = () => {
     const [ratings, setRatings] = useState([]);
 
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
     useEffect(() => {
         const fetchRatings = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/ratings');
+                const response = await axios.get(`${apiUrl}/api/ratings`);
                 setRatings(response.data);
             } catch (error) {
                 console.error('Error fetching ratings:', error);
