@@ -9,7 +9,7 @@ const RatingForm = () => {
     const [remarks, setRemarks] = useState('');
     const navigate = useNavigate();
 
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const apiUrl = 'https://hotelratings-backend.vercel.app';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
